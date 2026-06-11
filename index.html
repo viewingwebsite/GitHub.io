@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goddess Kanishka — Dominatrix</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:    #0a0a0a;
+      --deep:     #111111;
+      --card:     #161616;
+      --border:   #2a2a2a;
+      --gold:     #b8972a;
+      --gold-lt:  #d4b04a;
+      --cream:    #e8e0d0;
+      --muted:    #888;
+      --white:    #f5f0e8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 4rem;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+      backdrop-filter: blur(4px);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--cream); text-decoration: none; opacity: 0.75;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--gold-lt); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+    .hero-text {
+      padding: 10rem 4rem 6rem 5rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.8rem;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-lt); }
+    .hero-sub {
+      font-size: 0.8rem; letter-spacing: 0.05em;
+      color: var(--muted); max-width: 380px; margin-bottom: 2.8rem;
+      line-height: 1.9;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.4rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn:hover { background: var(--gold); color: var(--black); }
+
+    .hero-image {
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-image img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      filter: brightness(0.75) contrast(1.05);
+    }
+    /* gold overlay strip on left edge of image */
+    .hero-image::before {
+      content: '';
+      position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      z-index: 1;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex; align-items: center; gap: 1.5rem;
+      padding: 0 5rem; margin: 4rem 0;
+    }
+    .divider-line { flex: 1; height: 1px; background: var(--border); }
+    .divider-symbol {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold); font-size: 1.4rem; letter-spacing: 0.1em;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--deep);
+    }
+    .about-image {
+      overflow: hidden; position: relative;
+      min-height: 600px;
+    }
+    .about-image img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      filter: brightness(0.7) sepia(0.1);
+    }
+    .about-text {
+      padding: 6rem 5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .section-eyebrow {
+      font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.2rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300; color: var(--white);
+      line-height: 1.2; margin-bottom: 2rem;
+    }
+    .section-title em { font-style: italic; }
+    .about-text p {
+      font-size: 0.82rem; color: var(--muted);
+      margin-bottom: 1.2rem; max-width: 440px;
+    }
+    .about-text .btn { margin-top: 1.2rem; }
+
+    /* ── SERVICES ── */
+    #serve {
+      padding: 8rem 5rem;
+      background: var(--black);
+    }
+    .serve-header { text-align: center; margin-bottom: 4rem; }
+    .serve-header .section-title { margin-bottom: 0.8rem; }
+    .serve-header p {
+      font-size: 0.78rem; color: var(--muted);
+      max-width: 500px; margin: 0 auto;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+    }
+    .service-card {
+      background: var(--card);
+      padding: 3rem 2.5rem;
+      transition: background 0.25s;
+    }
+    .service-card:hover { background: #1d1a14; }
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem; color: var(--border);
+      line-height: 1; margin-bottom: 1rem;
+      transition: color 0.25s;
+    }
+    .service-card:hover .service-num { color: var(--gold); }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400;
+      color: var(--white); margin-bottom: 0.8rem;
+    }
+    .service-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.9; }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--deep);
+      padding: 8rem 5rem;
+    }
+    .contact-inner { max-width: 680px; margin: 0 auto; }
+    .contact-inner .section-eyebrow,
+    .contact-inner .section-title { text-align: center; }
+    .contact-inner .section-title { margin-bottom: 0.8rem; }
+    .contact-intro {
+      font-size: 0.78rem; color: var(--muted);
+      text-align: center; margin-bottom: 3rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block; font-size: 0.6rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: #111;
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem; font-weight: 300;
+      padding: 0.8rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group select option { background: #111; }
+    .form-submit { text-align: center; margin-top: 2rem; }
+    .btn-submit {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+      padding: 1rem 3rem; cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn-submit:hover { background: var(--gold); color: var(--black); }
+
+    /* ── SOCIAL ── */
+    .social-bar {
+      display: flex; justify-content: center; gap: 2rem;
+      padding: 2.5rem;
+      border-top: 1px solid var(--border);
+      background: var(--black);
+    }
+    .social-bar a {
+      font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .social-bar a:hover { color: var(--gold-lt); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; padding: 1.8rem;
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      font-size: 0.65rem; letter-spacing: 0.1em;
+      color: var(--border);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.8rem; }
+      .nav-links { gap: 1.5rem; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-image { height: 60vh; }
+      .hero-text { padding: 8rem 1.8rem 4rem; }
+      #about { grid-template-columns: 1fr; }
+      .about-image { min-height: 380px; }
+      .about-text { padding: 4rem 1.8rem; }
+      #serve { padding: 5rem 1.8rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      #contact { padding: 5rem 1.8rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .divider { padding: 0 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Goddess Kanishka</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#serve">Serve</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Female Domination &amp; Male Submission</p>
+    <h1 class="hero-title">
+      Experience<br/>the <em>Power</em><br/>Exchange
+    </h1>
+    <p class="hero-sub">
+      I am Goddess Kanishka — a dominant woman who knows exactly who she is.
+      Step into a world of control, discipline, and total surrender.
+    </p>
+    <a href="#about" class="btn">Learn More</a>
+  </div>
+  <div class="hero-image">
+    <!-- Replace hero.jpg with your own photo -->
+    <img src="hero.jpg" alt="Goddess Kanishka" />
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-image">
+    <!-- Replace about.jpg with your own photo -->
+    <img src="about.jpg" alt="About Goddess Kanishka" />
+  </div>
+  <div class="about-text">
+    <p class="section-eyebrow">Who I Am</p>
+    <h2 class="section-title">Goddess <em>Kanishka</em></h2>
+    <p>
+      I've been involved in the BDSM world for over a decade and have met all kinds
+      of people along the way. One thing I've learned is that no two submissives are the same.
+      Everyone arrives with different desires, experiences, and expectations.
+    </p>
+    <p>
+      What attracts me most is the mental side of domination — the teasing, the control,
+      the anticipation, the way a dynamic develops over time.
+    </p>
+    <p>
+      I enjoy those who can communicate clearly, know what interests them,
+      and understand that mutual respect is the foundation of any real exchange of power.
+    </p>
+    <a href="#serve" class="btn">Explore Services</a>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-symbol">✦</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- SERVICES -->
+<section id="serve">
+  <div class="serve-header">
+    <p class="section-eyebrow">What I Offer</p>
+    <h2 class="section-title">Ways to <em>Serve</em></h2>
+    <p>Each session is tailored. These are the territories I work within.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">I</div>
+      <div class="service-name">Online Domination</div>
+      <p class="service-desc">
+        Remote sessions via video or messaging. Control and humiliation
+        delivered across any distance, on my terms and my schedule.
+      </p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">II</div>
+      <div class="service-name">Financial Domination</div>
+      <p class="service-desc">
+        Tributes, tasks, and financial control. The purest expression
+        of submission — your resources placed entirely in my hands.
+      </p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">III</div>
+      <div class="service-name">Submissive Training</div>
+      <p class="service-desc">
+        Structured programmes to shape behaviour, instil discipline,
+        and develop your submission over time with clear expectations.
+      </p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">IV</div>
+      <div class="service-name">Humiliation &amp; Kink</div>
+      <p class="service-desc">
+        Verbal, written, or task-based humiliation. Tailored to your
+        specific kinks and comfort level after proper screening.
+      </p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">V</div>
+      <div class="service-name">Real-Time Sessions</div>
+      <p class="service-desc">
+        In-person sessions in Surat only. Subject to interview,
+        application, and my discretion. No exceptions.
+      </p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">VI</div>
+      <div class="service-name">Exclusive Content</div>
+      <p class="service-desc">
+        Custom photos, videos, and voice notes. A larger collection
+        available through my OnlyFans for dedicated followers.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-symbol">✦</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-eyebrow">Begin Your Journey</p>
+    <h2 class="section-title">Application to <em>Serve</em></h2>
+    <p class="contact-intro">
+      Ready to take the plunge? Fill in the form below honestly and completely.
+      Incomplete applications will not receive a response.
+    </p>
+    <form action="#" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" placeholder="Your age" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" placeholder="Your city" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service">How do you wish to serve?</label>
+        <select id="service" name="service">
+          <option value="">Select an option</option>
+          <option>Online Domination</option>
+          <option>Financial Domination</option>
+          <option>Submissive Training</option>
+          <option>Humiliation &amp; Kink</option>
+          <option>Real-Time Session</option>
+          <option>Exclusive Content</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="experience">Your experience in submission</label>
+        <textarea id="experience" name="experience" placeholder="Describe your experience level..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="fetishes">Your fetishes / interests</label>
+        <textarea id="fetishes" name="fetishes" placeholder="Be honest and specific..."></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-submit">Submit Application</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<div class="social-bar">
+  <a href="#">OnlyFans</a>
+  <a href="#">Telegram</a>
+  <a href="#">X / Twitter</a>
+  <a href="#">Signal</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 Goddess Kanishka &nbsp;·&nbsp; All rights reserved
+</footer>
+
+</body>
+</html>
