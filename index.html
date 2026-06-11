@@ -10,14 +10,15 @@
 
     :root {
       --black:    #0a0a0a;
-      --deep:     #111111;
-      --card:     #161616;
-      --border:   #2a2a2a;
-      --gold:     #b8972a;
-      --gold-lt:  #d4b04a;
-      --cream:    #e8e0d0;
-      --muted:    #888;
-      --white:    #f5f0e8;
+      --deep:     #0f0a0a;
+      --card:     #140d0d;
+      --border:   #2a1a1a;
+      --red:      #9b1c1c;
+      --red-lt:   #c0392b;
+      --red-glow: #7f1010;
+      --cream:    #e8d8d8;
+      --muted:    #886666;
+      --white:    #f5ecec;
     }
 
     html { scroll-behavior: smooth; }
@@ -35,7 +36,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.4rem 4rem;
-      background: rgba(10,10,10,0.97);
+      background: rgba(10,5,5,0.97);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(4px);
     }
@@ -43,7 +44,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.3rem;
       letter-spacing: 0.25em;
-      color: var(--gold);
+      color: var(--red-lt);
       text-transform: uppercase;
       text-decoration: none;
     }
@@ -53,7 +54,7 @@
       color: var(--cream); text-decoration: none; opacity: 0.75;
       transition: opacity 0.2s, color 0.2s;
     }
-    .nav-links a:hover { opacity: 1; color: var(--gold-lt); }
+    .nav-links a:hover { opacity: 1; color: var(--red-lt); }
 
     /* ── HERO ── */
     #hero {
@@ -67,17 +68,15 @@
       position: relative;
       overflow: hidden;
     }
-    /* subtle decorative background pattern */
     #hero::before {
       content: '';
       position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(184,151,42,0.05) 0%, transparent 70%);
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(155,28,28,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-eyebrow {
       font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 2rem;
+      color: var(--red-lt); margin-bottom: 2rem;
     }
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
@@ -87,10 +86,10 @@
       color: var(--white);
       margin-bottom: 2rem;
     }
-    .hero-title em { font-style: italic; color: var(--gold-lt); }
+    .hero-title em { font-style: italic; color: var(--red-lt); }
     .hero-rule {
       width: 60px; height: 1px;
-      background: var(--gold);
+      background: var(--red);
       margin: 0 auto 2rem;
     }
     .hero-sub {
@@ -102,14 +101,14 @@
     .btn {
       display: inline-block;
       padding: 0.85rem 2.4rem;
-      border: 1px solid var(--gold);
-      color: var(--gold);
+      border: 1px solid var(--red);
+      color: var(--red-lt);
       font-family: 'Montserrat', sans-serif;
       font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
       text-decoration: none;
       transition: background 0.25s, color 0.25s;
     }
-    .btn:hover { background: var(--gold); color: var(--black); }
+    .btn:hover { background: var(--red); color: var(--white); }
 
     /* ── DIVIDER ── */
     .divider {
@@ -119,7 +118,7 @@
     .divider-line { flex: 1; height: 1px; background: var(--border); }
     .divider-symbol {
       font-family: 'Cormorant Garamond', serif;
-      color: var(--gold); font-size: 1.4rem; letter-spacing: 0.1em;
+      color: var(--red); font-size: 1.4rem; letter-spacing: 0.1em;
     }
 
     /* ── ABOUT ── */
@@ -133,7 +132,7 @@
     }
     .section-eyebrow {
       font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.2rem;
+      color: var(--red-lt); margin-bottom: 1.2rem;
     }
     .section-title {
       font-family: 'Cormorant Garamond', serif;
@@ -141,7 +140,7 @@
       font-weight: 300; color: var(--white);
       line-height: 1.2; margin-bottom: 2rem;
     }
-    .section-title em { font-style: italic; }
+    .section-title em { font-style: italic; color: var(--red-lt); }
     .about-inner p {
       font-size: 0.85rem; color: var(--muted);
       margin-bottom: 1.4rem; line-height: 2;
@@ -170,14 +169,14 @@
       padding: 3rem 2.5rem;
       transition: background 0.25s;
     }
-    .service-card:hover { background: #1d1a14; }
+    .service-card:hover { background: #1a0d0d; }
     .service-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 2.5rem; color: var(--border);
       line-height: 1; margin-bottom: 1rem;
       transition: color 0.25s;
     }
-    .service-card:hover .service-num { color: var(--gold); }
+    .service-card:hover .service-num { color: var(--red); }
     .service-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.4rem; font-weight: 400;
@@ -196,20 +195,32 @@
     .contact-inner .section-title { margin-bottom: 0.8rem; }
     .contact-intro {
       font-size: 0.78rem; color: var(--muted);
-      text-align: center; margin-bottom: 3rem;
+      text-align: center; margin-bottom: 2rem;
     }
+    .fetlife-btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      color: var(--red-lt);
+      font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.7rem 1.8rem;
+      transition: border-color 0.2s, color 0.2s;
+      margin-bottom: 2.5rem;
+    }
+    .fetlife-btn:hover { border-color: var(--red); color: var(--white); }
+    .fetlife-wrap { text-align: center; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
     .form-group { margin-bottom: 1.2rem; }
     .form-group label {
       display: block; font-size: 0.6rem;
       letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 0.5rem;
+      color: var(--red-lt); margin-bottom: 0.5rem;
     }
     .form-group input,
     .form-group textarea,
     .form-group select {
       width: 100%;
-      background: #111;
+      background: #0f0808;
       border: 1px solid var(--border);
       color: var(--cream);
       font-family: 'Montserrat', sans-serif;
@@ -221,20 +232,20 @@
     }
     .form-group input:focus,
     .form-group textarea:focus,
-    .form-group select:focus { border-color: var(--gold); }
+    .form-group select:focus { border-color: var(--red); }
     .form-group textarea { resize: vertical; min-height: 110px; }
-    .form-group select option { background: #111; }
+    .form-group select option { background: #0f0808; }
     .form-submit { text-align: center; margin-top: 2rem; }
     .btn-submit {
       background: transparent;
-      border: 1px solid var(--gold);
-      color: var(--gold);
+      border: 1px solid var(--red);
+      color: var(--red-lt);
       font-family: 'Montserrat', sans-serif;
       font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
       padding: 1rem 3rem; cursor: pointer;
       transition: background 0.25s, color 0.25s;
     }
-    .btn-submit:hover { background: var(--gold); color: var(--black); }
+    .btn-submit:hover { background: var(--red); color: var(--white); }
 
     /* ── SOCIAL ── */
     .social-bar {
@@ -248,7 +259,7 @@
       color: var(--muted); text-decoration: none;
       transition: color 0.2s;
     }
-    .social-bar a:hover { color: var(--gold-lt); }
+    .social-bar a:hover { color: var(--red-lt); }
 
     /* ── FOOTER ── */
     footer {
@@ -401,14 +412,8 @@
       Ready to take the plunge? Fill in the form below honestly and completely.
       Incomplete applications will not receive a response.
     </p>
-    <div style="text-align:center; margin-bottom: 2.5rem;">
-      <a href="https://fetlife.com/users/Goddess_Kanishka" target="_blank" rel="noopener"
-         style="display:inline-flex; align-items:center; gap:0.6rem; color:var(--gold-lt);
-                font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase;
-                text-decoration:none; border:1px solid var(--border); padding:0.7rem 1.8rem;
-                transition:border-color 0.2s;"
-         onmouseover="this.style.borderColor='var(--gold)'"
-         onmouseout="this.style.borderColor='var(--border)'">
+    <div class="fetlife-wrap">
+      <a href="https://fetlife.com/users/Goddess_Kanishka" target="_blank" rel="noopener" class="fetlife-btn">
         ✦ &nbsp;Find me on FetLife
       </a>
     </div>
